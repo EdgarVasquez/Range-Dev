@@ -68,5 +68,34 @@ class Range:
         return result
 
 
+    def OverLapsRange(self, other):
+        if self.range[0] == '(':
+         FirstNumber = int(self.range[1]) + 1
+        else:
+         FirstNumber = int(self.range[1])
+
+        if self.range[-1] == ')':
+            LastNumber = int(self.range[-2]) -1
+        else:
+            LastNumber = int(self.range[-2])
+
+        if other.range[0] == '(':
+            FirstNumber02 = int(other.range[1]) + 1
+        else:
+            FirstNumber02 = int(other.range[1])
+
+        if other.range[-1] == ')':
+            LastNumber02 = int(other.range[-2]) - 1
+        else:
+            LastNumber02 = int(other.range[-2])
+
+        if FirstNumber >= FirstNumber02 and LastNumber < LastNumber02:
+            return True
+        else:
+            return False
+
+
+
+
 if __name__ == '__main__':
     print('PyCharm')

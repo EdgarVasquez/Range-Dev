@@ -7,6 +7,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_NoEqual(self):
         self.assertEqual(False, main.EqualNum('[2,9)','[3,5)'))
+
     def test_Contains(self):
         self.assertEqual(True, main.ContainsRN('[2,9)','[3,5]'))
 
@@ -24,6 +25,15 @@ class MyTestCase(unittest.TestCase):
 
     def test_EndPoint(self):
         self.assertEqual('2,5', main.EndPointsRN('[2,6)'))
+
+    def test_EndPoint2(self):
+        self.assertEqual('2,6', main.EndPointsRN('[2,6]'))
+
+    def test_EndPoint3(self):
+        self.assertEqual('3,5', main.EndPointsRN('(2,6)'))
+
+    def test_EndPoint4(self):
+        self.assertEqual('3,6', main.EndPointsRN('(2,6]'))
 
 
 if __name__ == '__main__':
