@@ -9,7 +9,10 @@ def ContainsRN(range1,range2):
     R2 = Range(range2)
     R3 = Range.ContainsRange(R1,R2)
     return R3
-
+def EndPointsRN(range):
+    R1 = Range(range)
+    R2 = Range.Endpoint(R1)
+    return R2
 class Range:
     def __init__(self, Range):
         self.range = Range
@@ -24,11 +27,11 @@ class Range:
         if self.range[-1] == ')':
             LastNumber = LastNumber - 1
         if other.range[0] == '(':
-            FirstNumber1 = FirstNumber + 1
+            FirstNumber1 = FirstNumber1 + 1
         if other.range[-1] == ')':
-            LastNumber1 = LastNumber - 1
+            LastNumber1 = LastNumber1 - 1
 
-        if FirstNumber1 > FirstNumber and LastNumber1 < LastNumber:
+        if FirstNumber1 >= FirstNumber and LastNumber1 <= LastNumber:
             return True
         else:
             return False
@@ -51,6 +54,18 @@ class Range:
             return True
         else:
             return False
+
+    def Endpoint(self):
+        if self.range[0] == '(':
+            FirstNumber = int(self.range[1]) + 1
+        else:
+            FirstNumber = int(self.range[1])
+        if self.range[-1] == ')':
+            LastNumber = int(self.range[-2]) -1
+        else:
+            LastNumber = int(self.range[-2])
+        result = str(FirstNumber)+','+str(LastNumber)
+        return result
 
 
 if __name__ == '__main__':
