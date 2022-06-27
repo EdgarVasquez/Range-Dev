@@ -1,3 +1,8 @@
+def OverlapsRN(range1,range2):
+    R1 = Range(range1)
+    R2 = Range(range2)
+    R3 = Range.OverLapsRange(R1,R2)
+    return  R3
 def EqualNum(range1,range2):
     R1 = Range(range1)
     R2 = Range(range2)
@@ -89,10 +94,14 @@ class Range:
         else:
             LastNumber02 = int(other.range[-2])
 
-        if FirstNumber >= FirstNumber02 and LastNumber < LastNumber02:
+        if FirstNumber <= FirstNumber02 <= LastNumber:
+            return True
+        elif FirstNumber <= LastNumber02 <= LastNumber:
             return True
         else:
             return False
+
+
 
 
 

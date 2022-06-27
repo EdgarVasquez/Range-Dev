@@ -35,6 +35,15 @@ class MyTestCase(unittest.TestCase):
     def test_EndPoint4(self):
         self.assertEqual('3,6', main.EndPointsRN('(2,6]'))
 
+    def test_Overlaps(self):
+        self.assertEqual(True, main.OverlapsRN('(2,9]','(3,5]'))
+    def test_NoOverlaps(self):
+        self.assertEqual(False, main.OverlapsRN('[2,5)','[7,9)'))
+    def test_Overlaps2(self):
+        self.assertEqual(True, main.OverlapsRN('[3,5)','[3,5)'))
+    def test_Overlaps3(self):
+        self.assertEqual(True, main.OverlapsRN('[2,5)','[3,9)'))
+
 
 if __name__ == '__main__':
     unittest.main()
